@@ -1,0 +1,8 @@
+result
+result-*
+__pycache__/
+*.egg-info/
+build/
+.direnv/
+.pytest_cache/
+.ruff_cache/

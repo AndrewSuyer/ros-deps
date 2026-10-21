@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ros-deps"
+dynamic = ["version"]
+description = "List ROS workspace dependencies as nix-ros-overlay package names (a rosdep replacement for NixOS)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["catkin_pkg"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+ros-deps = "ros_deps:main"
+
+[tool.setuptools]
+py-modules = ["ros_deps"]
+
+[tool.setuptools.dynamic]
+version = { attr = "ros_deps.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+# catkin_pkg uses deprecated pyparsing APIs
+filterwarnings = ["ignore::DeprecationWarning:catkin_pkg", "ignore::DeprecationWarning:pyparsing"]
+
+[tool.ruff]
+line-length = 100
