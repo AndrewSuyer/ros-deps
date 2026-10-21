@@ -45,7 +45,7 @@ follow yours keeps the index in sync with the ROS packages you actually use.
     nix-ros-overlay.url = "github:lopsided98/nix-ros-overlay/master";
     nixpkgs.follows = "nix-ros-overlay/nixpkgs";
     ros-deps = {
-      url = "github:<owner>/ros-deps";
+      url = "github:AndrewSuyer/ros-deps";
       inputs.nix-ros-overlay.follows = "nix-ros-overlay";
     };
   };
@@ -80,7 +80,7 @@ The index is then built from your own `rosPackages`, whatever its version.
 To try it without changing anything:
 
 ```sh
-nix run github:<owner>/ros-deps -- --distro jazzy path/to/src
+nix run github:AndrewSuyer/ros-deps -- --distro jazzy path/to/src
 ```
 
 ## Usage
